@@ -17,20 +17,32 @@ An exercise in building a server API for city explorer.
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource.
+2020-07-26 14:22:06 - Added initial state V-1.0.0
 
 ## Credits and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 -->
 
 ```
-Number and name of feature: ________________________________
+#1 Repository Set Up
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 40 minutes
 
-Start time: _____
+Start time: 1:40
 
-Finish time: _____
+Finish time: 2:20
 
-Actual time needed to complete: _____
+Actual time needed to complete: 40 minutes
+```
+
+```
+#2 Repository Set Up
+
+Estimate of time needed to complete: 40 minutes
+
+Start time: 1:40
+
+Finish time: 2:20
+
+Actual time needed to complete: 40 minutes
 ```

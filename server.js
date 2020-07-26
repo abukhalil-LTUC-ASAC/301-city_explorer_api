@@ -12,6 +12,8 @@ app.use(cors());
 const PORT = process.env.PORT || 3000;
 app.listen(PORT,() => console.log(`Listening on port ${PORT}`));
 
+// ----------- Gets API ----------- //
+
 app.get('/', function (req, res) {
   res.status(200).send('Welcome to the ?best? API');
 });
@@ -19,24 +21,31 @@ app.get('/', function (req, res) {
 app.get('/location', function (req, res) {
   const data = require('./data/location.json');
   let city = req.query.city;
+  let isWrong = badInput(city);
 
-  let locationData = new Location(city, data);
-  res.status(200).json(locationData);
+  if(isWrong) {
+    res.status(403).send({ 'status': 403, msg: 'Wrong input'});
 
+  } else {
+    let locationData = new Location(city, data);
+    res.status(200).send(locationData);
+  }
 });
 
 app.get('/weather', (req, res) => {
   const weatherData = require('./data/weather.json');
   Weather.all = [];
 
-  // if(!city) { res.status(400).send({ 'status': 400, msg: 'Parameter missing!'}); }
   weatherData.data.forEach(element => {
     let localWeather = new Weather(element);
     Weather.all.push(localWeather);
   });
-  res.send(Weather.all);
+  res.status(200).send(Weather.all);
 });
 
+app.use('*', (request, response) => response.send('Sorry, that route does not exist.'));
+
+// ----------- constructors and functions ----------- //
 function Location(city, data) {
   this.search_query = city;
   this.formatted_query = data[0].display_name;
@@ -44,9 +53,9 @@ function Location(city, data) {
   this.longitude = data[0].lon;
 }
 
-function Weather(data, longTimeStamp){
+function Weather(data, longTimeStamp) {
   this.forecast = data.weather.description;
   this.time = data.valid_date;
 }
 
-app.use('*', (request, response) => response.send('Sorry, that route does not exist.'));
+let badInput = (city) => !city ? true : false ;

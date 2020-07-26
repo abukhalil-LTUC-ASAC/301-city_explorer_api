@@ -23,6 +23,7 @@ An exercise in building a server API for city explorer.
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 -->
 
+### Day 1
 ```
 #1 Repository Set Up
 
@@ -36,13 +37,35 @@ Actual time needed to complete: 40 minutes
 ```
 
 ```
-#2 Repository Set Up
+#2 Location API
 
-Estimate of time needed to complete: 40 minutes
+Estimate of time needed to complete: 30 minutes
 
-Start time: 1:40
+Start time: 2:50
 
-Finish time: 2:20
+Finish time: 3:50
 
-Actual time needed to complete: 40 minutes
+Actual time needed to complete: 1 hours // wrong query string  ?amman instead of ?city=amman 
+```
+```
+#3 Weather API
+
+Estimate of time needed to complete: 20 minutes
+
+Start time: 5:40
+
+Finish time: 6:10
+
+Actual time needed to complete: 25 minutes
+```
+```
+#4 Error Checking
+
+Estimate of time needed to complete: 20 minutes
+
+Start time: 5:40
+
+Finish time: 6:10
+
+Actual time needed to complete: 25 minutes
 ```

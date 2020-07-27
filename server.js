@@ -19,17 +19,25 @@ app.get('/', function (req, res) {
 });
 
 app.get('/location', function (req, res) {
-  const data = require('./data/location.json');
+  // const data = require('./data/location.json');
   let city = req.query.city;
   let isWrong = badInput(city);
-
+  
   if(isWrong) {
+    console.log(city, isWrong)
     res.status(403).send({ 'status': 403, msg: 'Wrong input'});
 
   } else {
-    let locationData = new Location(city, data);
-    res.status(200).send(locationData);
+    // let locationData = new Location(city, data);
 
+    let geo_key = process.env.GEOCODE_API_KEY;
+    let url = `https://eu1.locationiq.com/v1/search.php?key=${geo_key}&q=${city}&format=json`;
+  
+    superagent.get(url).then( data => {
+      let locationData = new Location(city, data.body);
+      res.status(200).send(locationData);
+      // return locationData;
+    });
   }
 });
 

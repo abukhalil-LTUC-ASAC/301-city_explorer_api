@@ -17,16 +17,64 @@ The application would help setup an API node where we could call for information
 Using Javsscript and Nodejs.
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
+<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples: -->
 
 2020-07-26 14:22:06 - Added initial state V-1.0.0 Day1
 2020-07-26 18:34:38 - Added final state V-2.0.0 Day2
 
 ## Credits and Collaborations
 Day 1 - Duha, Nassem, Obada, Waleed.
+Day 2 - Duha, Nassem, Obada, Waleed.
 
 
 ### Day 1
+```
+#1 Repository Set Up
+
+Estimate of time needed to complete: 40 minutes
+
+Start time: 1:40
+
+Finish time: 2:20
+
+Actual time needed to complete: 40 minutes
+```
+
+```
+#2 Location API
+
+Estimate of time needed to complete: 30 minutes
+
+Start time: 2:50
+
+Finish time: 3:50
+
+Actual time needed to complete: 1 hours // wrong query string  ?amman instead of ?city=amman 
+```
+```
+#3 Weather API
+
+Estimate of time needed to complete: 20 minutes
+
+Start time: 5:40
+
+Finish time: 6:10
+
+Actual time needed to complete: 25 minutes
+```
+```
+#4 Error Checking
+
+Estimate of time needed to complete: 20 minutes
+
+Start time: 6:10
+
+Finish time: 6:30
+
+Actual time needed to complete: 20 minutes
+```
+
+### Day 2
 ```
 #1 Repository Set Up
 

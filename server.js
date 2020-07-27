@@ -4,7 +4,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-
+const superagent = require('superagent');
 const app = express();
 app.use(cors());
 // app.use(express.static('./public'));
@@ -29,6 +29,7 @@ app.get('/location', function (req, res) {
   } else {
     let locationData = new Location(city, data);
     res.status(200).send(locationData);
+
   }
 });
 
@@ -36,7 +37,7 @@ app.get('/weather', (req, res) => {
   const weatherData = require('./data/weather.json');
   Weather.all = [];
 
-  weatherData.data.forEach(element => {
+  weatherData.data.map(element => {
     let localWeather = new Weather(element);
     Weather.all.push(localWeather);
   });
@@ -53,7 +54,7 @@ function Location(city, data) {
   this.longitude = data[0].lon;
 }
 
-function Weather(data, longTimeStamp) {
+function Weather(data) {
   this.forecast = data.weather.description;
   this.time = data.valid_date;
 }

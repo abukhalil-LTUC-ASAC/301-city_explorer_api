@@ -99,12 +99,12 @@ function Trail(data) {
   this.location = data.location;
   this.length = data.length;
   this.stars = data.stars;
-  this.star_votes = data.star_votes;
+  this.star_votes = data.starVotes;
   this.summary = data.summary;
-  this.trail_url = data.trail_url;
-  this.conditions = data.conditions;
-  this.condition_date = data.condition_date;
-  this.condition_time = data.condition_time;
+  this.trail_url = data.url;
+  this.conditions = data.conditionStatus;
+  this.condition_details = data.conditionDetails;
+  this.condition_time = data.conditionDate;
 }
 
 let badInput = (city) => !city ? true : false ;

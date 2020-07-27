@@ -41,15 +41,25 @@ app.get('/location', function (req, res) {
   }
 });
 
-app.get('/weather', (req, res) => {
-  const weatherData = require('./data/weather.json');
-  Weather.all = [];
+var locationLatLon = [];
 
-  weatherData.data.map(element => {
-    let localWeather = new Weather(element);
-    Weather.all.push(localWeather);
+app.get('/weather', (req, res) => {
+  // const weatherData = require('./data/weather.json');
+  Weather.all = [];
+  console.log(locationLatLon);
+  let weather_key = process.env.WEATHER_API_KEY;
+  let url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${locationLatLon[0]}&lon=${locationLatLon[1]}&days=6&key=${weather_key}`;
+
+  superagent.get(url).then( data => {
+    let weatherData = JSON.parse(data.text).data;
+
+    weatherData.map(element => {
+      let localWeather = new Weather(element);
+      Weather.all.push(localWeather);
+      console.log(localWeather);
+    })
+    res.status(200).json(Weather.all);
   });
-  res.status(200).send(Weather.all);
 });
 
 app.use('*', (request, response) => response.send('Sorry, that route does not exist.'));
@@ -60,6 +70,9 @@ function Location(city, data) {
   this.formatted_query = data[0].display_name;
   this.latitude = data[0].lat;
   this.longitude = data[0].lon;
+
+  locationLatLon[0] = data[0].lat;
+  locationLatLon[1] = data[0].lon;
 }
 
 function Weather(data) {

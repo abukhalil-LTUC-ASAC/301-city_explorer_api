@@ -7,3 +7,7 @@ CREATE TABLE locations (
     latitude NUMERIC(10, 7),
     longitude NUMERIC(10, 7)
   );
+
+INSERT INTO locations
+(search_query, formatted_query, latitude, longitude)
+VALUES ('amman', 'Amman, 11181, Jordan', 31.9515694, 35.9239625);
